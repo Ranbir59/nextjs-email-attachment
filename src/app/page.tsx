@@ -1,5 +1,6 @@
 'use client'
 
+import { sendEmail } from '@/actions/sendEmail'
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 
 export default function Home() {
@@ -24,25 +25,26 @@ export default function Home() {
       formData.append('audition', auditionFile)
     }
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: formData,
-      })
+    // try {
+    //   const res = await fetch('/api/contact', {
+    //     method: 'POST',
+    //     body: formData,
+    //   })
 
-      const result = await res.json()
-      if (res.ok) {
-        setStatus('Audition sent successfully!')
-        setName('')
-        setMessage('')
-        setAuditionFile(null)
-      } else {
-        setStatus(result.error || 'Failed to send audition.')
-      }
-    } catch (error) {
-      console.error(error)
-      setStatus('Error sending audition.')
-    }
+    //   const result = await res.json()
+    //   if (res.ok) {
+    //     setStatus('Audition sent successfully!')
+    //     setName('')
+    //     setMessage('')
+    //     setAuditionFile(null)
+    //   } else {
+    //     setStatus(result.error || 'Failed to send audition.')
+    //   }
+    // } catch (error) {
+    //   console.error(error)
+    //   setStatus('Error sending audition.')
+    // }
+    sendEmail()
   }
 
   return (
