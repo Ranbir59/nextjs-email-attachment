@@ -7,7 +7,7 @@ export default function Home() {
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
   const [auditionFile, setAuditionFile] = useState<File | null>(null)
-  const [status, setStatus] = useState('')
+  // const [status, setStatus] = useState('')
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -88,7 +88,7 @@ export default function Home() {
         >
           Submit
         </button>
-        {status && <p className="text-sm mt-2">{status}</p>}
+        {/* {status && <p className="text-sm mt-2">{status}</p>} */}
       </form>
     </main>
   )
